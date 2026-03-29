@@ -24,8 +24,8 @@ A Flask web application for analyzing liver health through enzyme levels and med
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
-   cd Ahmad-website
+   git clone https://github.com/AIOL-HQ/liver-health-system
+   cd liver-health-system
    ```
 2. Create a virtual environment (optional but recommended):
    ```bash
