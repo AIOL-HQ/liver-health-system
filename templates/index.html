@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liver Health AI System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <header class="topbar glass">
+        <div class="brand-wrap">
+            <div class="brand-badge">AI</div>
+            <div>
+                <h1>Liver Health Smart System</h1>
+                <p>Advanced enzyme interpretation and image-based liver screening demo</p>
+            </div>
+        </div>
+        <button id="themeToggle" class="ghost-btn">Toggle Theme</button>
+    </header>
+
+    <main class="layout">
+        <section class="hero glass reveal">
+            <div class="hero-copy">
+                <span class="chip">Dynamic • Animated • Accurate Pipeline</span>
+                <h2>Modern dashboard for liver enzyme review and image processing</h2>
+                <p>
+                    This version adds a stronger image-processing pipeline with more filters,
+                    extra contour rules, animated result cards, drag-and-drop upload, preview,
+                    live metrics, and a cleaner project structure.
+                </p>
+                <div class="hero-actions">
+                    <a href="#enzymesCard" class="primary-btn">Open Enzymes</a>
+                    <a href="#cancerCard" class="secondary-btn">Open Image Analysis</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <strong>14</strong>
+                    <span>Image stages</span>
+                </div>
+                <div class="stat-card">
+                    <strong>3</strong>
+                    <span>Accuracy rules</span>
+                </div>
+                <div class="stat-card">
+                    <strong>Auto</strong>
+                    <span>Live result UI</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards-grid">
+            <article class="panel glass reveal" id="enzymesCard">
+                <div class="panel-head">
+                    <div>
+                        <h3>Enzyme Analyzer</h3>
+                        <p>Interpret ALT, AST, ALP, GGT, bilirubin, and AST/ALT ratio</p>
+                    </div>
+                    <span class="panel-icon">🧪</span>
+                </div>
+
+                <form id="enzymeForm" class="form-grid">
+                    <div class="field">
+                        <label>Patient Name</label>
+                        <input type="text" name="name" required placeholder="Enter patient name" />
+                    </div>
+                    <div class="field">
+                        <label>Age</label>
+                        <input type="number" name="age" required placeholder="Age" />
+                    </div>
+                    <div class="field">
+                        <label>ALT (7 - 56)</label>
+                        <input type="number" step="0.1" name="alt" required />
+                    </div>
+                    <div class="field">
+                        <label>AST (10 - 40)</label>
+                        <input type="number" step="0.1" name="ast" required />
+                    </div>
+                    <div class="field">
+                        <label>ALP (44 - 147)</label>
+                        <input type="number" step="0.1" name="alp" required />
+                    </div>
+                    <div class="field">
+                        <label>GGT (9 - 48)</label>
+                        <input type="number" step="0.1" name="ggt" required />
+                    </div>
+                    <div class="field full">
+                        <label>Bilirubin (0.1 - 1.2)</label>
+                        <input type="number" step="0.01" name="bilirubin" required />
+                    </div>
+                    <button class="primary-btn full" type="submit">Analyze Enzymes</button>
+                </form>
+
+                <div id="enzymeResult" class="result-area hidden"></div>
+            </article>
+
+            <article class="panel glass reveal" id="cancerCard">
+                <div class="panel-head">
+                    <div>
+                        <h3>Liver Image Screening</h3>
+                        <p>Multi-filter image-processing pipeline with suspicious region detection</p>
+                    </div>
+                    <span class="panel-icon">🩻</span>
+                </div>
+
+                <form id="imageForm" class="upload-form">
+                    <label class="dropzone" id="dropzone">
+                        <input type="file" id="imageInput" name="image" accept="image/*" required hidden />
+                        <div class="dropzone-content">
+                            <div class="upload-icon">⬆</div>
+                            <h4>Drop image here or click to upload</h4>
+                            <p>Supports JPG, PNG, BMP, WEBP</p>
+                        </div>
+                    </label>
+
+                    <div class="preview-box hidden" id="previewBox">
+                        <img id="previewImage" alt="Preview" />
+                    </div>
+
+                    <button class="primary-btn" type="submit">Run Advanced Analysis</button>
+                </form>
+
+                <div id="loader" class="loader hidden">
+                    <div class="spinner"></div>
+                    <span>Processing image with enhanced filters...</span>
+                </div>
+
+                <div id="analysisResult" class="result-area hidden"></div>
+                <div id="stagesGrid" class="stages-grid"></div>
+            </article>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
